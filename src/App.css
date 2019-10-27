@@ -1,0 +1,56 @@
+* {
+    font-family: 'Modak', cursive;
+}
+body {
+    background-color: rgb(241, 236, 183);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(238, 223, 12);
+    border-radius: 50%;
+    width: 700px;
+    height: 700px;
+}
+.inner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 242, 221);
+    width: 400px;
+    height: 400px;
+    box-shadow: 2px 2px 3px rgba(128, 128, 128, 0.644);
+}
+.pad-bank {
+    background-color: rgb(148, 148, 148);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 15px;
+    column-gap: 15px;
+    height: 250px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 2px 2px 3px gray;
+}
+.drum-pad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(84, 85, 84);
+    font-size: 25px;
+    text-shadow: 1px 1px 1px gray;
+    box-shadow: 2px 2px 3px gray;
+}
+.drum-pad:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
