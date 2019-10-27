@@ -53,14 +53,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(84, 85, 84);
     font-size: 25px;
-    text-shadow: 1px 1px 1px gray;
-    box-shadow: 2px 2px 3px gray;
+    border-radius: 5px;
     font-family: 'Modak', cursive;
+    cursor: pointer;
 }
 .drum-pad:hover {
-    cursor: pointer;
     opacity: 0.7;
     transition: 0.3s;
 }

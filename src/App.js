@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
-
+/* Клавиша */
 class DrumPad extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      padStyle: inactiveStyle
+    }
     this.playSound = this.playSound.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.changeStyle = this.changeStyle.bind(this);
   }
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
@@ -18,15 +22,29 @@ class DrumPad extends React.Component {
       this.playSound();
     }
   }
+  changeStyle() {
+    if (this.state.padStyle == inactiveStyle) {
+      this.setState({
+        padStyle: activeStyle
+      });
+    }
+    else {
+      this.setState({
+        padStyle: inactiveStyle
+      });
+    }
+  }
   playSound(e) {
     const sound = document.getElementById(this.props.keyTrigger);
     sound.currentTime = 0;
     sound.play();
     this.props.updateDisplay(this.props.clipId.replace());
+    this.changeStyle();
+    setTimeout(() => this.changeStyle(), 100);
   }
   render() {
     return (
-      <div id={this.props.clipId} 
+      <div id={this.props.clipId} style={this.state.padStyle}
         onClick={this.playSound} 
         className="drum-pad" >
           <audio className='clip' id={this.props.keyTrigger} src={this.props.clip}></audio>
@@ -35,7 +53,7 @@ class DrumPad extends React.Component {
     )
   }
 }
-
+/* Панель с клавишами */
 class PadBank extends React.Component {
   render() {
     let padBank;
@@ -83,6 +101,18 @@ class App extends React.Component {
     )
   }
 }
+const activeStyle = {
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
+  color: "rgb(81, 200, 221)",
+  textShadow: "1px 1px 4px white"
+
+} ;
+const inactiveStyle = {
+  backgroundColor: "rgb(84, 85, 84)",
+  boxShadow: "3px 3px 5px black",
+  textShadow: "1px 1px 1px gray"
+};
+
 const bankOfMelodies = [{
   keyCode: "KeyQ",
   keyTrigger: 'Q',
