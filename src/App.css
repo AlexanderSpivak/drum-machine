@@ -1,6 +1,3 @@
-* {
-    font-family: 'Modak', cursive;
-}
 body {
     background-color: rgb(241, 236, 183);
 }
@@ -22,12 +19,24 @@ body {
 }
 .inner-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(243, 242, 221);
     width: 400px;
     height: 400px;
     box-shadow: 2px 2px 3px rgba(128, 128, 128, 0.644);
+}
+.display {
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 30px;
+    width: 290px;
+    height: 30px;
+    background-color: rgba(81, 200, 221, 0.699);
+    box-shadow: 2px 2px 3px gray;
+    font-family: 'VT323', monospace;
+
 }
 .pad-bank {
     background-color: rgb(148, 148, 148);
@@ -48,6 +57,7 @@ body {
     font-size: 25px;
     text-shadow: 1px 1px 1px gray;
     box-shadow: 2px 2px 3px gray;
+    font-family: 'Modak', cursive;
 }
 .drum-pad:hover {
     cursor: pointer;

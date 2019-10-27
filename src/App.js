@@ -22,6 +22,7 @@ class DrumPad extends React.Component {
     const sound = document.getElementById(this.props.keyTrigger);
     sound.currentTime = 0;
     sound.play();
+    this.props.updateDisplay(this.props.clipId.replace());
   }
   render() {
     return (
@@ -58,11 +59,25 @@ class PadBank extends React.Component {
 }
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: "Have fun!"
+    }
+    this.displayClipName = this.displayClipName.bind(this);
+  }
+  displayClipName(name) {
+    this.setState({
+      display: name
+    });
+  }
   render() {
     return (
       <div className="outer-container">
       <div id="drum-machine" className="inner-container">
-        <PadBank />
+        <div className="display">{this.state.display}</div>
+        <PadBank 
+        updateDisplay={this.displayClipName}/>
       </div>
       </div>
     )
