@@ -23,7 +23,7 @@ class DrumPad extends React.Component {
     }
   }
   changeStyle() {
-    if (this.state.padStyle == inactiveStyle) {
+    if (this.state.padStyle === inactiveStyle) {
       this.setState({
         padStyle: activeStyle
       });
@@ -91,12 +91,21 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="outer-container">
-      <div id="drum-machine" className="inner-container">
-        <div className="display">{this.state.display}</div>
-        <PadBank 
-        updateDisplay={this.displayClipName}/>
-      </div>
+      <div className="outer-container" id="drum-machine">
+        <div className="inner-container">
+          <div className="display">{this.state.display}</div>
+          <PadBank updateDisplay={this.displayClipName}/>
+            <div className="control-panel">
+              <label className="switch">
+                <input type="checkbox"/>
+                <div className="slider"/>
+              </label>
+              <label className="switch">
+                <input type="checkbox"/>
+                <div className="slider"/>
+              </label>
+            </div>
+          </div>
       </div>
     )
   }
