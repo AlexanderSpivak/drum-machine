@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { classBody } from '@babel/types';
 /* Клавиша */
 class DrumPad extends React.Component {
   constructor(props) {
@@ -35,10 +36,12 @@ class DrumPad extends React.Component {
     }
   }
   playSound(e) {
+    if (!document.getElementById('switchOff').checked) {
     const sound = document.getElementById(this.props.keyTrigger);
     sound.currentTime = 0;
     sound.play();
     this.props.updateDisplay(this.props.clipId.replace());
+    }
     this.changeStyle();
     setTimeout(() => this.changeStyle(), 100);
   }
@@ -97,11 +100,7 @@ class App extends React.Component {
           <PadBank updateDisplay={this.displayClipName}/>
             <div className="control-panel">
               <label className="switch">
-                <input type="checkbox"/>
-                <div className="slider"/>
-              </label>
-              <label className="switch">
-                <input type="checkbox"/>
+                <input type="checkbox" id="switchOff"/>
                 <div className="slider"/>
               </label>
             </div>
